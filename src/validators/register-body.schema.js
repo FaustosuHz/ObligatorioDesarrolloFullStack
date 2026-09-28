@@ -1,17 +1,45 @@
 import Joi from 'joi';
-import { Roles } from '../constants/role.constants.js';
 
-//esquema de validacion para body registro
 export const registerBodySchema = Joi.object({
-    name: Joi.string().min(3).max(30).label("nombre").required(),
-    username: Joi.string().alphanum().min(3).required(),
-    email: Joi.string().email().required(),
-    password: Joi.string().min(3).max(30).required(),
-    confirmPassword: Joi.string().valid(Joi.ref("password")).required(),
-    role: Joi.string().valid(...Roles).required() //no es muy realista pasarle el rol porque puede elegir admin pero para probar
-})
 
-//validar el rol de la persona en el body sea valido por ejemplo
-export const roleSchema = Joi.object({
-    role: Joi.string().valid(...Roles).required()
-})
+    name: Joi.string()
+        .pattern(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/)
+        .min(3)
+        .max(30)
+        .required()
+        .messages({
+            "string.empty": "El nombre es obligatorio",
+            "string.min": "El nombre debe tener al menos 3 caracteres",
+            "string.max": "El nombre no puede superar los 30 caracteres",
+            "string.pattern.base": "El nombre solo puede contener letras y espacios"
+        }),
+
+    username: Joi.string()
+        .alphanum()
+        .min(3)
+        .required()
+        .messages({
+            "string.empty": "El nombre de usuario es obligatorio",
+            "string.min": "El nombre de usuario debe tener al menos 3 caracteres",
+            "string.alphanum": "El nombre de usuario solo puede contener letras y números"
+        }),
+
+    email: Joi.string()
+        .email()
+        .required()
+        .messages({
+            "string.empty": "El email es obligatorio",
+            "string.email": "El email no tiene un formato válido"
+        }),
+
+    password: Joi.string()
+        .min(3)
+        .max(30)
+        .required()
+        .messages({
+            "string.empty": "La contraseña es obligatoria",
+            "string.min": "La contraseña debe tener al menos 3 caracteres",
+            "string.max": "La contraseña no puede superar los 30 caracteres"
+        })
+
+});

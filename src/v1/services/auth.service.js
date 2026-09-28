@@ -16,11 +16,13 @@ export const getUsuarioByEmailOrUsername = async (data) => {
 
 }
 
+export const generarTokenAuthService = (usuario) => {
 
-// data es un usuario completo
+    return generarAccessTokenByUser(usuario);
+
+}
+
 export const createUsuarioService = async (data) => {
-
-    // hay que validar que no existe un usuario con email ni username
 
     const email = data.email;
     const usuarioPorEmail = await getUsuarioByEmail(email);
@@ -36,24 +38,14 @@ export const createUsuarioService = async (data) => {
         throw new Error("Error el usuario ya existe");
     }
 
-    // generar password encriptado
     const password = data.password;
     const hashPassword = await hashear(password);
     data.password = hashPassword;
 
-    // guardamos y retornamos el usuario
     const usuario = await Usuario.create(data);
 
     return usuario;
 }
-
-
-export const generarTokenAuthService = (usuario) => {
-
-    return generarAccessTokenByUser(usuario);
-
-}
-
 
 export const loginService = async (reqBody) => {
 
@@ -65,22 +57,17 @@ export const loginService = async (reqBody) => {
 
     const emailOUsername = reqBody.identificador;
 
-    // valida que exista usuario en la base
     const usuario = await getUsuarioByEmailOrUsername(emailOUsername);
 
-    // si no existe error
     if (!usuario) {
         throw errorCredencialInvalida;
     }
 
-    // si existe
     const passwordParam = reqBody.password;
     const passwordBase = usuario.password;
 
-    // validar password
     const valid = await compararPassword(passwordParam, passwordBase);
 
-    // si no valida error
     if (!valid) {
         throw errorCredencialInvalida;
     }

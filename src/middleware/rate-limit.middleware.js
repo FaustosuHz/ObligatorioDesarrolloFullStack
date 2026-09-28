@@ -56,10 +56,10 @@ export const apiRateLimit = rateLimit({
  * Cada IP puede intentar iniciar sesión cinco veces
  * durante un período de 15 minutos.
  */
-export const loginRateLimit = rateLimit({
+export const loginRateLimitMiddleware = rateLimit({
     windowMs: 15 * 60 * 1000,
 
-    limit: 2,
+    limit: 5,
 
     store: redisStore("rate-limit:login:"),
 

@@ -1,5 +1,8 @@
 import { verifyAccessToken } from "../utils/token.util.js";
 
+import { registerBodySchema } from "../validators/register-body.schema.js";
+import { loginBodySchema } from "../validators/login-body.schema.js";
+
 
 export const authMiddleware = (req, res, next) => {
     try {
@@ -34,13 +37,17 @@ export const authMiddleware = (req, res, next) => {
 
 export const middlewareValidateLoginBody = (req, res, next) => {
 
-    const { identificador, password } = req.body;
+    const { error, value } = loginBodySchema.validate(req.body, {
+        abortEarly: false
+    });
 
-    if (!identificador || !password) {
+    if (error) {
         return res.status(400).json({
-            error: "Identificador y password son requeridos"
+            error: error.details[0].message
         });
     }
+
+    req.body = value;
 
     next();
 
@@ -49,13 +56,17 @@ export const middlewareValidateLoginBody = (req, res, next) => {
 
 export const middlewareValidateRegisterBody = (req, res, next) => {
 
-    const { name, username, email, password } = req.body;
+    const { error, value } = registerBodySchema.validate(req.body, {
+        abortEarly: false
+    });
 
-    if (!name || !username || !email || !password) {
+    if (error) {
         return res.status(400).json({
-            error: "Todos los campos son requeridos"
+            error: error.details[0].message
         });
     }
+
+    req.body = value;
 
     next();
 

@@ -21,7 +21,6 @@ app.get("/", (req, res) => {
 app.use(
     "/api",
 
-    // Después conectamos MongoDB.
     async (req, res, next) => {
         try {
             await connectMongo();
@@ -30,18 +29,12 @@ app.use(
             next(error);
         }
     },
-
-    // Finalmente procesamos las rutas.
     apiRoutes
 );
 
 
-//mas rutas 
-
-
 app.use(middlewareErrores)
 
-// app.use(routerTareas);
 
 app.listen(process.env.PORT, () => {
     console.log(`Servidor escuchando en el puerto ${process.env.PORT}`);
