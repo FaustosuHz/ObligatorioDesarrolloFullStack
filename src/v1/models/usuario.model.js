@@ -1,40 +1,34 @@
 import mongoose from "mongoose";
+import { Role, Roles } from "../../constants/role.constants.js";
 
-const libroSchema = new mongoose.Schema({
-
-    title: {
-
+const usuarioSchema = new mongoose.Schema({
+    name: {
         type: String,
-
         required: true,
-
     },
-
-    completed: {
-
-        type: Boolean,
-
+    username: {
+        type: String,
         required: true,
-
+        unique: true,
     },
-
-    userId: {
-
-        type: mongoose.Schema.Types.ObjectId,
-
-        ref: "User",
-
-        required: true
-
+    email: {
+        type: String,
+        required: true,
+        unique: true,
     },
-
-    imageUrl: { type: String, required: false }
-
+    role: {
+        type: String,
+        enum: Roles,
+        default: Role.user
+    },
+    password: {
+        type: String,
+        required: true,
+        select: false
+    }
 });
 
-
-libroSchema.set('toJSON', {
-
+usuarioSchema.set('toJSON', {
     //doc es el documento de mongoose y ret el elemento a devolver
     transform: (doc, ret) => {
 
@@ -43,19 +37,17 @@ libroSchema.set('toJSON', {
 
         //borramos el id de mongo
         delete ret._id;
+        delete ret.password;
 
-        // // eliminar campos que no querés exponer
-        // delete ret.__v;
+        // eliminar campos que no querés exponer
+        delete ret.__v;
         // delete ret.createdAt;
         // delete ret.updatedAt;
 
         return ret;
-
     }
-
 });
 
+const Usuario = mongoose.model("Usuario", usuarioSchema);
 
-const Libro = mongoose.model("Libro", libroSchema);
-
-export default Libro;
+export default Usuario;

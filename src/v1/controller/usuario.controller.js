@@ -1,4 +1,4 @@
-import { createUserService, deleteUserService, replaceUserService } from "../services/user.services.js";
+import { createUserService, deleteUserService, replaceUserService } from "../services/usuario.services.js";
 
 
 

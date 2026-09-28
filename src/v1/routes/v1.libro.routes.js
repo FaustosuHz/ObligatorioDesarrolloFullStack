@@ -1,14 +1,21 @@
-//routes/v1/users.routes.js
+//routes/v1/libros.routes.js
+
 import { Router } from "express"
-import { createTareaController, deleteTareaController, replaceTareaController, updateTareaController } from "../controller/todo.controller.js";
+
+import { createLibroController, deleteLibroController, replaceLibroController, updateLibroController } from "../controller/libro.controller.js"
 
 
-const tareasRoutes = Router();
 
-tareasRoutes.post("/", createTareaController);
-tareasRoutes.delete("/:idTarea", deleteTareaController);
-tareasRoutes.patch("/:idTarea", updateTareaController);
-tareasRoutes.put("/:idTarea", replaceTareaController);
+const librosRoutes = Router();
+
+librosRoutes.post("/", createLibroController);
+
+librosRoutes.delete("/:idLibro", deleteLibroController);
+
+librosRoutes.patch("/:idLibro", updateLibroController);
+
+librosRoutes.put("/:idLibro", replaceLibroController);
 
 
-export default tareasRoutes
+
+export default librosRoutes
