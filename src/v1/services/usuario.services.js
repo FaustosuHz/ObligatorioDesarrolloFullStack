@@ -1,8 +1,6 @@
 import User from "../models/usuario.model.js";
 
 
-//este metodo posiblente sea solo para un user admin, no para todos los usuarios
-
 export const getAllUsersService = async () => {
 
     return await User.find();
@@ -27,12 +25,6 @@ export const getUsuarioByUsername = async (username) => {
 
 };
 
-export const createUserService = async (data) => {
-
-    return await User.create(data);
-
-};
-
 export const deleteUserService = async (id) => {
 
     return await User.findByIdAndDelete(id);
@@ -49,4 +41,14 @@ export const replaceUserService = async (id, data) => {
 
     return await User.findByIdAndReplace(id, data, { new: true });
 
-}
+};
+
+export const updatePlanService = async (id, plan) => {
+
+    return await User.findByIdAndUpdate(
+        id,
+        { plan },
+        { new: true }
+    );
+
+};

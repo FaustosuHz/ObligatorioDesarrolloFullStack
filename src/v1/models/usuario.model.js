@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import { Role, Roles } from "../../constants/role.constants.js";
+import { Plan, Plans } from "../../constants/plan.constants.js";
 
 const usuarioSchema = new mongoose.Schema({
     name: {
@@ -20,6 +21,11 @@ const usuarioSchema = new mongoose.Schema({
         type: String,
         enum: Roles,
         default: Role.user
+    },
+    plan: {
+        type: String,
+        enum: Plans,
+        default: Plan.plus
     },
     password: {
         type: String,

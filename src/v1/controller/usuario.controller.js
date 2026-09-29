@@ -1,12 +1,5 @@
-import { createUserService, deleteUserService, replaceUserService } from "../services/usuario.services.js";
+import { deleteUserService, replaceUserService, updatePlanService } from "../services/usuario.services.js";
 
-
-
-export const createUserController = async (req, res) => {
-    const data = req.body;
-    const user = await createUserService(data);
-    return res.status(200).json(user);
-}
 
 export const deleteUserController = async (req, res) => {
     const { idUser } = req.params;
@@ -27,4 +20,15 @@ export const replaceUserController = async (req, res) => {
     const { idUser } = req.params;
     const user = await replaceUserService(idUser, data);
     return res.status(200).json(user);
+}
+
+export const updatePlanController = async (req, res) => {
+
+    const { plan } = req.body;
+    const idUser = req.user.id;
+
+    const user = await updatePlanService(idUser, plan);
+
+    return res.status(200).json(user);
+
 }
