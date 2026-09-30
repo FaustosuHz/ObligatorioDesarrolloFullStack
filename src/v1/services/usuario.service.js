@@ -1,5 +1,5 @@
 import User from "../models/usuario.model.js";
-
+import mongoose from "mongoose";
 
 export const getAllUsersService = async () => {
 
@@ -7,7 +7,7 @@ export const getAllUsersService = async () => {
 
 };
 
-export const getUserByIdService = async (id) => {
+export const getUserById = async (id) => {
 
     return await User.findById(id).select("+password");
 
@@ -33,13 +33,21 @@ export const deleteUserService = async (id) => {
 
 export const updateUserService = async (id, data) => {
 
+    if (!mongoose.isValidObjectId(id)) {
+        const error = new Error("El ID del usuario no es válido");
+        error.status = 400;
+        throw error;
+    }
+
+    const usuario = await User.findById(id);
+
+    if (!usuario) {
+        const error = new Error("El usuario no existe");
+        error.status = 404;
+        throw error;
+    }
+
     return await User.findByIdAndUpdate(id, data, { new: true });
-
-};
-
-export const replaceUserService = async (id, data) => {
-
-    return await User.findByIdAndReplace(id, data, { new: true });
 
 };
 

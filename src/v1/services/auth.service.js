@@ -2,7 +2,7 @@ import { constructorError } from "../../utils/contructor.error.js";
 import { generarAccessTokenByUser } from "../../utils/token.util.js";
 import { compararPassword, hashear } from "../../utils/validar-password.js";
 import Usuario from "../models/usuario.model.js";
-import { getUsuarioByEmail, getUsuarioByUsername } from "./usuario.services.js";
+import { getUsuarioByEmail, getUsuarioByUsername } from "./usuario.service.js";
 
 
 export const getUsuarioByEmailOrUsername = async (data) => {

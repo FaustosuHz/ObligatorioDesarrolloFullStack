@@ -1,5 +1,11 @@
-import { deleteUserService, replaceUserService, updatePlanService } from "../services/usuario.services.js";
+import { deleteUserService, getUserById, updateUserService, updatePlanService, getAllUsersService } from "../services/usuario.service.js";
 
+
+export const getUserByIdController = async (req, res) => {
+    const { idUser } = req.params;
+    const user = await getUserById(idUser);
+    return res.status(200).json(user);
+}
 
 export const deleteUserController = async (req, res) => {
     const { idUser } = req.params;
@@ -12,14 +18,11 @@ export const updateUserController = async (req, res) => {
     const { idUser } = req.params;
     const user = await updateUserService(idUser, data);
     return res.status(200).json(user);
-
 }
 
-export const replaceUserController = async (req, res) => {
-    const data = req.body;
-    const { idUser } = req.params;
-    const user = await replaceUserService(idUser, data);
-    return res.status(200).json(user);
+export const getUsersController = async (req, res) => {
+    const users = await getAllUsersService();
+    return res.status(200).json(users);
 }
 
 export const updatePlanController = async (req, res) => {
@@ -30,5 +33,4 @@ export const updatePlanController = async (req, res) => {
     const user = await updatePlanService(idUser, plan);
 
     return res.status(200).json(user);
-
 }
