@@ -27,6 +27,20 @@ export const getUsuarioByUsername = async (username) => {
 
 export const deleteUserService = async (id) => {
 
+    if (!mongoose.isValidObjectId(id)) {
+        const error = new Error("El ID del usuario no es válido");
+        error.status = 400;
+        throw error;
+    }
+
+    const usuario = await User.findById(id);
+
+    if (!usuario) {
+        const error = new Error("El usuario no existe");
+        error.status = 404;
+        throw error;
+    }
+
     return await User.findByIdAndDelete(id);
 
 };

@@ -1,74 +1,140 @@
+import mongoose from "mongoose";
 import Libro from "../models/libros.model.js";
-
-
-export const getAllLibrosService = async () => {
-
-    return await Libro.find().populate("userId", "name email");
-
-};
-
-// getbyid
-
-export const getLibroByIdService = async (id) => {
-
-    return await Libro.findById(id).populate("userId", "name email");
-
-};
-
-// getbyuserid
-
-export const getLibrosByUserService = async (userId) => {
-
-    return await Libro.find({ userId }).populate("userId", "name email");
-
-};
-
-// getbycompleted
-
-export const getLibrosByCompletedService = async (completed) => {
-
-    return await Libro.find({ completed }).populate("userId", "name email");
-
-};
-
-// getbytitle
-
-export const getLibrosByTitleService = async (title) => {
-
-    return await Libro.find({ title: { $regex: title, $options: "i" } }).populate("userId", "name email");
-
-};
-
-
-// crear
+import Usuario from "../models/usuario.model.js";
+import Categoria from "../models/categoria.model.js";
 
 export const createLibroService = async (data) => {
 
-    await Libro.create(data);
+    const usuario = await Usuario.findById(data.userId);
+
+    if (!usuario) {
+        const error = new Error("El usuario no existe");
+        error.status = 404;
+        throw error;
+    }
+
+    const categoria = await Categoria.findById(data.categoryId);
+
+    if (!categoria) {
+        const error = new Error("La categoría no existe");
+        error.status = 404;
+        throw error;
+    }
+
+    return await Libro.create(data);
 
 }
 
+export const getLibrosService = async () => {
 
-// delete
-
-export const deleteLibroService = async (id) => {
-
-    return await Libro.findByIdAndDelete(id);
+    return await Libro.find();
 
 }
 
-// update
+export const getLibroByIdService = async (id) => {
+
+    if (!mongoose.isValidObjectId(id)) {
+        const error = new Error("El ID del libro no es válido");
+        error.status = 400;
+        throw error;
+    }
+
+    const libro = await Libro.findById(id);
+
+    if (!libro) {
+        const error = new Error("El libro no existe");
+        error.status = 404;
+        throw error;
+    }
+
+    return libro;
+
+}
+
+export const getLibrosByUserService = async (userId) => {
+
+    if (!mongoose.isValidObjectId(userId)) {
+        const error = new Error("El ID del usuario no es válido");
+        error.status = 400;
+        throw error;
+    }
+
+    const usuario = await Usuario.findById(userId);
+
+    if (!usuario) {
+        const error = new Error("El usuario no existe");
+        error.status = 404;
+        throw error;
+    }
+
+    return await Libro.find({ userId });
+
+}
+
+export const getLibrosByCategoriaService = async (categoryId) => {
+
+    if (!mongoose.isValidObjectId(categoryId)) {
+        const error = new Error("El ID de la categoría no es válido");
+        error.status = 400;
+        throw error;
+    }
+
+    const categoria = await Categoria.findById(categoryId);
+
+    if (!categoria) {
+        const error = new Error("La categoría no existe");
+        error.status = 404;
+        throw error;
+    }
+
+    return await Libro.find({ categoryId });
+
+}
 
 export const updateLibroService = async (id, data) => {
+
+    if (!mongoose.isValidObjectId(id)) {
+        const error = new Error("El ID del libro no es válido");
+        error.status = 400;
+        throw error;
+    }
+
+    const libro = await Libro.findById(id);
+
+    if (!libro) {
+        const error = new Error("El libro no existe");
+        error.status = 404;
+        throw error;
+    }
+
+    const categoria = await Categoria.findById(data.categoryId);
+
+    if (!categoria) {
+        const error = new Error("La categoría no existe");
+        error.status = 404;
+        throw error;
+    }
 
     return await Libro.findByIdAndUpdate(id, data, { new: true });
 
 }
 
-// replace
+export const deleteLibroService = async (id) => {
 
-export const replaceLibroService = async (id, data) => {
+    if (!mongoose.isValidObjectId(id)) {
+        const error = new Error("El ID del libro no es válido");
+        error.status = 400;
+        throw error;
+    }
 
-    return await Libro.findByIdAndReplace(id, data, { new: true });
+    const libro = await Libro.findById(id);
+
+    if (!libro) {
+        const error = new Error("El libro no existe");
+        error.status = 404;
+        throw error;
+    }
+
+    return await Libro.findByIdAndDelete(id);
 
 }
