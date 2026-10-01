@@ -20,10 +20,8 @@ export const getUsuarioByEmail = async (email) => {
 };
 
 export const getUsuarioByUsername = async (username) => {
-
     return await User.findOne({ username });
-
-};
+}
 
 export const deleteUserService = async (id) => {
 

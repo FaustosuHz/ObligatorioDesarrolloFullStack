@@ -1,0 +1,120 @@
+[{
+  "_id": {
+    "$oid": "6abdd7f9c9d014e8790f9721"
+  },
+  "name": "Carolina Lopez",
+  "username": "carolinalopez",
+  "email": "carolina@gmail.com",
+  "role": "admin",
+  "plan": "premium",
+  "password": "$2b$12$TatlLRWJlyb3bdgjvvnvvO0LNK7d.uulfgh9DXhRT0Vyo5mWp3Xlu",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abddb49bcf76645bfa7e47a"
+  },
+  "name": "Juan Perez",
+  "username": "juanperez",
+  "email": "juan.perez@gmail.com",
+  "role": "user",
+  "plan": "premium",
+  "password": "$2b$12$TDTD9fzC3tKfIGNT1i32vuM1H9Rn6wT.Mam9ptXV0hz9JV7/Cwf3q",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abddbafbcf76645bfa7e481"
+  },
+  "name": "Maria Garcia",
+  "username": "mariagarcia",
+  "email": "maria.garcia@gmail.com",
+  "role": "user",
+  "plan": "plus",
+  "password": "$2b$12$TlR/ajKa7hcObneXHiMcouIK3R4KlM9uPb.bbgocgBFx94IHspKKy",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abddbefbcf76645bfa7e486"
+  },
+  "name": "Pedro Rodriguez",
+  "username": "pedrorodriguez",
+  "email": "pedro.rodriguez@gmail.com",
+  "role": "user",
+  "plan": "plus",
+  "password": "$2b$12$xoZLxGrS9yiS9JFvmyweSuLGFkfiDsNz7EqaLl8Gaui1ml.1PSbLO",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abddc35bcf76645bfa7e48b"
+  },
+  "name": "Ana Martinez",
+  "username": "anamartinez",
+  "email": "ana.martinez@gmail.com",
+  "role": "user",
+  "plan": "premium",
+  "password": "$2b$12$sJ4GIkMXM5bNGMW5yHBDkOj.RKBKpMDzqyxqPnQ/Gpazh5KVzSGDy",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abddcc5bcf76645bfa7e491"
+  },
+  "name": "Lucas Fernandez",
+  "username": "lucasfernandez",
+  "email": "lucas.fernandez@gmail.com",
+  "role": "user",
+  "plan": "plus",
+  "password": "$2b$12$a1Hh98l/RCgRuRYnZcG/UO06rhEzS4E07P1EE6s.1/eneskNHsJPO",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abddd0fbcf76645bfa7e496"
+  },
+  "name": "Sofia Gonzalez",
+  "username": "sofiagonzalez",
+  "email": "sofia.gonzalez@gmail.com",
+  "role": "user",
+  "plan": "plus",
+  "password": "$2b$12$63RvXSf4OMu09yo6uCMxOeVxzL9Ki/hBTcmdEbklAfG5Egmf88z.a",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abddd49bcf76645bfa7e49b"
+  },
+  "name": "Martin Silva",
+  "username": "martinsilva",
+  "email": "martin.silva@gmail.com",
+  "role": "user",
+  "plan": "plus",
+  "password": "$2b$12$IrdwIGoVSSpy4PB5qLAwOeBbQr2u0/WiNFo18MlnOGu/dOSivEury",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abddd76bcf76645bfa7e49e"
+  },
+  "name": "Laura Torres",
+  "username": "lauratorres",
+  "email": "laura.torres@gmail.com",
+  "role": "user",
+  "plan": "plus",
+  "password": "$2b$12$TchdHmIz3QIohxuiTqnKm.XJhH6ITI35FkyvdHbBMNB1y/AIPwn/6",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abddd9abcf76645bfa7e4a1"
+  },
+  "name": "Diego Ramirez",
+  "username": "diegoramirez",
+  "email": "diego.ramirez@gmail.com",
+  "role": "user",
+  "plan": "plus",
+  "password": "$2b$12$hjIE99MkEBH3AxVd9Etr1OGsUGR0qHGxuksNQx7Z6z3iNP7viITn.",
+  "__v": 0
+}]

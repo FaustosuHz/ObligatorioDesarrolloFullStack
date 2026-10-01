@@ -35,7 +35,6 @@ const usuarioSchema = new mongoose.Schema({
 });
 
 usuarioSchema.set('toJSON', {
-    //doc es el documento de mongoose y ret el elemento a devolver
     transform: (doc, ret) => {
 
         // renombrar _id → id
@@ -45,10 +44,7 @@ usuarioSchema.set('toJSON', {
         delete ret._id;
         delete ret.password;
 
-        // eliminar campos que no querés exponer
         delete ret.__v;
-        // delete ret.createdAt;
-        // delete ret.updatedAt;
 
         return ret;
     }

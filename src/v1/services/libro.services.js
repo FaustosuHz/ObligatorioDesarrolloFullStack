@@ -21,6 +21,16 @@ export const createLibroService = async (data) => {
         throw error;
     }
 
+    const cantidadLibros = await Libro.countDocuments({
+        userId: data.userId
+    });
+
+    if (usuario.plan === "plus" && cantidadLibros >= 4) {
+        const error = new Error("El plan Plus permite agregar hasta 4 libros");
+        error.status = 400;
+        throw error;
+    }
+
     return await Libro.create(data);
 
 }

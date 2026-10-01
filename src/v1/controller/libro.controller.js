@@ -48,7 +48,7 @@ export const getLibrosByCategoriaController = async (req, res) => {
     }
 };
 
-export const createLibroController = async (req, res) => {
+export const createLibroController = async (req, res, next) => {
     try {
         const data = {
             ...req.body,
@@ -59,9 +59,9 @@ export const createLibroController = async (req, res) => {
 
         return res.status(201).json(libro);
     } catch (error) {
-        return res.status(500).json({ message: error.message });
+        next(error);
     }
-};
+}
 
 export const deleteLibroController = async (req, res) => {
     const { idLibro } = req.params;

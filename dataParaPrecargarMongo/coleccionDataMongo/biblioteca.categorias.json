@@ -1,0 +1,56 @@
+[{
+  "_id": {
+    "$oid": "6abdda37bcf76645bfa7e472"
+  },
+  "name": "Fantasía",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abdda42bcf76645bfa7e473"
+  },
+  "name": "Ciencia ficción",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abdda49bcf76645bfa7e474"
+  },
+  "name": "Terror",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abdda51bcf76645bfa7e475"
+  },
+  "name": "Romance",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abdda63bcf76645bfa7e476"
+  },
+  "name": "Misterio",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abdda6ebcf76645bfa7e477"
+  },
+  "name": "Aventura",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abdda77bcf76645bfa7e478"
+  },
+  "name": "Drama",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abdda7ebcf76645bfa7e479"
+  },
+  "name": "Historia",
+  "__v": 0
+}]

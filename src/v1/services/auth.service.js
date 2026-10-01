@@ -28,14 +28,18 @@ export const createUsuarioService = async (data) => {
     const usuarioPorEmail = await getUsuarioByEmail(email);
 
     if (usuarioPorEmail) {
-        throw new Error("Error el usuario ya existe");
+        const error = new Error("Error el usuario ya existe");
+        error.status = 409;
+        throw error;
     }
 
     const username = data.username;
     const usuarioPorUsername = await getUsuarioByUsername(username);
 
     if (usuarioPorUsername) {
-        throw new Error("Error el usuario ya existe");
+        const error = new Error("Error el usuario ya existe");
+        error.status = 409;
+        throw error;
     }
 
     const password = data.password;

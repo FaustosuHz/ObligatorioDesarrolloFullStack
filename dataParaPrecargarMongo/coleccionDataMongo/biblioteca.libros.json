@@ -1,0 +1,504 @@
+[{
+  "_id": {
+    "$oid": "6abddb5abcf76645bfa7e47b"
+  },
+  "title": "El Hobbit",
+  "completed": false,
+  "userId": {
+    "$oid": "6abddb49bcf76645bfa7e47a"
+  },
+  "categoryId": {
+    "$oid": "6abdda37bcf76645bfa7e472"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abddb62bcf76645bfa7e47c"
+  },
+  "title": "Dune",
+  "completed": true,
+  "userId": {
+    "$oid": "6abddb49bcf76645bfa7e47a"
+  },
+  "categoryId": {
+    "$oid": "6abdda42bcf76645bfa7e473"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abddb69bcf76645bfa7e47d"
+  },
+  "title": "Drácula",
+  "completed": false,
+  "userId": {
+    "$oid": "6abddb49bcf76645bfa7e47a"
+  },
+  "categoryId": {
+    "$oid": "6abdda49bcf76645bfa7e474"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abddb73bcf76645bfa7e47e"
+  },
+  "title": "Orgullo y prejuicio",
+  "completed": true,
+  "userId": {
+    "$oid": "6abddb49bcf76645bfa7e47a"
+  },
+  "categoryId": {
+    "$oid": "6abdda51bcf76645bfa7e475"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abddb8fbcf76645bfa7e47f"
+  },
+  "title": "El nombre de la rosa",
+  "completed": false,
+  "userId": {
+    "$oid": "6abddb49bcf76645bfa7e47a"
+  },
+  "categoryId": {
+    "$oid": "6abdda63bcf76645bfa7e476"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abddb9abcf76645bfa7e480"
+  },
+  "title": "La isla del tesoro",
+  "completed": true,
+  "userId": {
+    "$oid": "6abddb49bcf76645bfa7e47a"
+  },
+  "categoryId": {
+    "$oid": "6abdda6ebcf76645bfa7e477"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abddbc0bcf76645bfa7e482"
+  },
+  "title": "Harry Potter y la piedra filosofal",
+  "completed": true,
+  "userId": {
+    "$oid": "6abddbafbcf76645bfa7e481"
+  },
+  "categoryId": {
+    "$oid": "6abdda37bcf76645bfa7e472"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abddbc7bcf76645bfa7e483"
+  },
+  "title": "1984",
+  "completed": false,
+  "userId": {
+    "$oid": "6abddbafbcf76645bfa7e481"
+  },
+  "categoryId": {
+    "$oid": "6abdda42bcf76645bfa7e473"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abddbcebcf76645bfa7e484"
+  },
+  "title": "El resplandor",
+  "completed": true,
+  "userId": {
+    "$oid": "6abddbafbcf76645bfa7e481"
+  },
+  "categoryId": {
+    "$oid": "6abdda49bcf76645bfa7e474"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abddbd7bcf76645bfa7e485"
+  },
+  "title": "Jane Eyre",
+  "completed": false,
+  "userId": {
+    "$oid": "6abddbafbcf76645bfa7e481"
+  },
+  "categoryId": {
+    "$oid": "6abdda51bcf76645bfa7e475"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abddbfdbcf76645bfa7e487"
+  },
+  "title": "El señor de los anillos",
+  "completed": false,
+  "userId": {
+    "$oid": "6abddbefbcf76645bfa7e486"
+  },
+  "categoryId": {
+    "$oid": "6abdda37bcf76645bfa7e472"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abddc04bcf76645bfa7e488"
+  },
+  "title": "Fundación",
+  "completed": true,
+  "userId": {
+    "$oid": "6abddbefbcf76645bfa7e486"
+  },
+  "categoryId": {
+    "$oid": "6abdda42bcf76645bfa7e473"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abddc0abcf76645bfa7e489"
+  },
+  "title": "It",
+  "completed": false,
+  "userId": {
+    "$oid": "6abddbefbcf76645bfa7e486"
+  },
+  "categoryId": {
+    "$oid": "6abdda49bcf76645bfa7e474"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abddc11bcf76645bfa7e48a"
+  },
+  "title": "Cumbres borrascosas",
+  "completed": true,
+  "userId": {
+    "$oid": "6abddbefbcf76645bfa7e486"
+  },
+  "categoryId": {
+    "$oid": "6abdda51bcf76645bfa7e475"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abddc84bcf76645bfa7e48c"
+  },
+  "title": "Neuromante",
+  "completed": false,
+  "userId": {
+    "$oid": "6abddc35bcf76645bfa7e48b"
+  },
+  "categoryId": {
+    "$oid": "6abdda42bcf76645bfa7e473"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abddc8cbcf76645bfa7e48d"
+  },
+  "title": "Frankenstein",
+  "completed": true,
+  "userId": {
+    "$oid": "6abddc35bcf76645bfa7e48b"
+  },
+  "categoryId": {
+    "$oid": "6abdda49bcf76645bfa7e474"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abddc95bcf76645bfa7e48e"
+  },
+  "title": "La chica del tren",
+  "completed": true,
+  "userId": {
+    "$oid": "6abddc35bcf76645bfa7e48b"
+  },
+  "categoryId": {
+    "$oid": "6abdda63bcf76645bfa7e476"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abddc9bbcf76645bfa7e48f"
+  },
+  "title": "Historia de Uruguay",
+  "completed": false,
+  "userId": {
+    "$oid": "6abddc35bcf76645bfa7e48b"
+  },
+  "categoryId": {
+    "$oid": "6abdda7ebcf76645bfa7e479"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abddcb5bcf76645bfa7e490"
+  },
+  "title": "Romeo y Julieta",
+  "completed": false,
+  "userId": {
+    "$oid": "6abddc35bcf76645bfa7e48b"
+  },
+  "categoryId": {
+    "$oid": "6abdda51bcf76645bfa7e475"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abddce4bcf76645bfa7e492"
+  },
+  "title": "Alicia en el país de las maravillas",
+  "completed": false,
+  "userId": {
+    "$oid": "6abddcc5bcf76645bfa7e491"
+  },
+  "categoryId": {
+    "$oid": "6abdda37bcf76645bfa7e472"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abddceabcf76645bfa7e493"
+  },
+  "title": "El fin de la eternidad",
+  "completed": true,
+  "userId": {
+    "$oid": "6abddcc5bcf76645bfa7e491"
+  },
+  "categoryId": {
+    "$oid": "6abdda42bcf76645bfa7e473"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abddcf2bcf76645bfa7e494"
+  },
+  "title": "El exorcista",
+  "completed": false,
+  "userId": {
+    "$oid": "6abddcc5bcf76645bfa7e491"
+  },
+  "categoryId": {
+    "$oid": "6abdda49bcf76645bfa7e474"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abddcf9bcf76645bfa7e495"
+  },
+  "title": "El misterio de Salem's Lot",
+  "completed": false,
+  "userId": {
+    "$oid": "6abddcc5bcf76645bfa7e491"
+  },
+  "categoryId": {
+    "$oid": "6abdda63bcf76645bfa7e476"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abddd1abcf76645bfa7e497"
+  },
+  "title": "El color de la magia",
+  "completed": true,
+  "userId": {
+    "$oid": "6abddd0fbcf76645bfa7e496"
+  },
+  "categoryId": {
+    "$oid": "6abdda37bcf76645bfa7e472"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abddd23bcf76645bfa7e498"
+  },
+  "title": "Solaris",
+  "completed": false,
+  "userId": {
+    "$oid": "6abddd0fbcf76645bfa7e496"
+  },
+  "categoryId": {
+    "$oid": "6abdda42bcf76645bfa7e473"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abddd2bbcf76645bfa7e499"
+  },
+  "title": "La casa de los espíritus",
+  "completed": true,
+  "userId": {
+    "$oid": "6abddd0fbcf76645bfa7e496"
+  },
+  "categoryId": {
+    "$oid": "6abdda49bcf76645bfa7e474"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abddd36bcf76645bfa7e49a"
+  },
+  "title": "El silencio de los corderos",
+  "completed": true,
+  "userId": {
+    "$oid": "6abddd0fbcf76645bfa7e496"
+  },
+  "categoryId": {
+    "$oid": "6abdda63bcf76645bfa7e476"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abddd55bcf76645bfa7e49c"
+  },
+  "title": "El último deseo",
+  "completed": false,
+  "userId": {
+    "$oid": "6abddd49bcf76645bfa7e49b"
+  },
+  "categoryId": {
+    "$oid": "6abdda37bcf76645bfa7e472"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abddd61bcf76645bfa7e49d"
+  },
+  "title": "El cementerio de animales",
+  "completed": false,
+  "userId": {
+    "$oid": "6abddd49bcf76645bfa7e49b"
+  },
+  "categoryId": {
+    "$oid": "6abdda49bcf76645bfa7e474"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abddd82bcf76645bfa7e49f"
+  },
+  "title": "La máquina del tiempo",
+  "completed": false,
+  "userId": {
+    "$oid": "6abddd76bcf76645bfa7e49e"
+  },
+  "categoryId": {
+    "$oid": "6abdda42bcf76645bfa7e473"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abddd89bcf76645bfa7e4a0"
+  },
+  "title": "Como agua para chocolate",
+  "completed": false,
+  "userId": {
+    "$oid": "6abddd76bcf76645bfa7e49e"
+  },
+  "categoryId": {
+    "$oid": "6abdda51bcf76645bfa7e475"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abddda4bcf76645bfa7e4a2"
+  },
+  "title": "El problema de los tres cuerpos",
+  "completed": true,
+  "userId": {
+    "$oid": "6abddd9abcf76645bfa7e4a1"
+  },
+  "categoryId": {
+    "$oid": "6abdda42bcf76645bfa7e473"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abddda9bcf76645bfa7e4a3"
+  },
+  "title": "El horror de Dunwich",
+  "completed": false,
+  "userId": {
+    "$oid": "6abddd9abcf76645bfa7e4a1"
+  },
+  "categoryId": {
+    "$oid": "6abdda49bcf76645bfa7e474"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abdddb0bcf76645bfa7e4a4"
+  },
+  "title": "El amor en los tiempos del cólera",
+  "completed": true,
+  "userId": {
+    "$oid": "6abddd9abcf76645bfa7e4a1"
+  },
+  "categoryId": {
+    "$oid": "6abdda51bcf76645bfa7e475"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abdddb7bcf76645bfa7e4a5"
+  },
+  "title": "La sombra del viento",
+  "completed": false,
+  "userId": {
+    "$oid": "6abddd9abcf76645bfa7e4a1"
+  },
+  "categoryId": {
+    "$oid": "6abdda63bcf76645bfa7e476"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6abdde15bcf76645bfa7e4a6"
+  },
+  "title": "El mundo de ayer",
+  "completed": true,
+  "userId": {
+    "$oid": "6abddc35bcf76645bfa7e48b"
+  },
+  "categoryId": {
+    "$oid": "6abdda7ebcf76645bfa7e479"
+  },
+  "__v": 0
+}]
