@@ -4,23 +4,19 @@ import { connectMongo } from "./src/v1/config/mongo.config.js";
 import apiRoutes from "./src/v1/routes/index.js";
 import { middlewareErrores } from "./src/middleware/error.middleware.js";
 
-
-// connectRedis();
-
 const app = express();
 
 app.use(express.json());
 
 app.get("/", (req, res) => {
-    res.status(200).json({ message: "Servidor disponible" })
-})
-
-
-
+    console.log("Servidor disponible");
+    res.status(200).json({
+        message: "Servidor disponible"
+    });
+});
 
 app.use(
     "/api",
-
     async (req, res, next) => {
         try {
             await connectMongo();
@@ -32,12 +28,12 @@ app.use(
     apiRoutes
 );
 
+app.use(middlewareErrores);
 
-app.use(middlewareErrores)
-
-
-app.listen(process.env.PORT, () => {
-    console.log(`Servidor escuchando en el puerto ${process.env.PORT}`);
-});
+if (process.env.NODE_ENV !== "production") {
+    app.listen(process.env.PORT, () => {
+        console.log(`Servidor escuchando en el puerto ${process.env.PORT}`);
+    });
+}
 
 export default app;
