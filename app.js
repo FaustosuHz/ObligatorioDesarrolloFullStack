@@ -10,6 +10,7 @@ app.use(express.json());
 
 app.get("/", (req, res) => {
     console.log("Servidor disponible");
+
     res.status(200).json({
         message: "Servidor disponible"
     });
