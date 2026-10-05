@@ -1,4 +1,4 @@
-import { createLibroService, deleteLibroService, getLibrosService, getLibroByIdService, getLibrosByUserService, getLibrosByCategoriaService, updateLibroService } from "../services/libro.services.js";
+import { createLibroService, deleteLibroService, getLibrosService, getLibroByIdService, getLibrosByUserService, getLibrosByCategoriaService, updateLibroService, getLibrosByUserServicePaginated } from "../services/libro.services.js";
 
 
 export const getLibrosController = async (req, res) => {
@@ -21,18 +21,24 @@ export const getLibroByIdController = async (req, res) => {
     }
 };
 
-export const getLibrosByUserController = async (req, res) => {
+export const getLibrosByUserController = async (req, res, next) => {
     try {
         const userId = req.user?.id;
+        const { pagina, limite } = res.locals.validatedQuery;
 
-        if (!userId) {
-            return res.status(404).json({ message: "No se pudo encontrar el usuario" });
+        if (pagina === undefined && limite === undefined) {
+            const libros = await getLibrosByUserService(userId);
+            return res.status(200).json(libros);
         }
 
-        const libros = await getLibrosByUserService(userId);
-        return res.status(200).json(libros);
+        const resultado = await getLibrosByUserServicePaginated(userId, {
+            pagina: pagina ?? 1,
+            limite: limite ?? 20
+        });
+
+        return res.status(200).json(resultado);
     } catch (error) {
-        return res.status(500).json({ message: error.message });
+        return next(error);
     }
 };
 

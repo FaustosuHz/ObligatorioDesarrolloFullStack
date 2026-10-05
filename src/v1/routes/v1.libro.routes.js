@@ -7,6 +7,7 @@ import { middlewareValidateCreateLibroBody } from "../../middleware/middlewareVa
 import { middlewareValidateUpdateLibroBody } from "../../middleware/middlewareValidateUpdateLibroBody.js"
 import { middlewareValidateLibroParams } from "../../middleware/middlewareValidateLibroParams.js"
 import { middlewareValidateCategoriaParams } from "../../middleware/middlewareValidateCategoriaParams.js"
+import { middlewareValidateLibroQuery } from "../../middleware/middlewareValidateLibroQuery.js"
 
 const librosRoutes = Router();
 
@@ -14,7 +15,7 @@ librosRoutes.post("/", authMiddleware, middlewareValidateCreateLibroBody, create
 
 librosRoutes.get("/", authMiddleware, getLibrosController);
 
-librosRoutes.get("/usuario", authMiddleware, getLibrosByUserController);
+librosRoutes.get("/usuario", authMiddleware, middlewareValidateLibroQuery, getLibrosByUserController);
 
 librosRoutes.get("/categoria/:categoryId", authMiddleware, middlewareValidateCategoriaParams, getLibrosByCategoriaController);
 

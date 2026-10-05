@@ -148,3 +148,40 @@ export const deleteLibroService = async (id) => {
     return await Libro.findByIdAndDelete(id);
 
 }
+
+export const getLibrosByUserServicePaginated = async (userId, { pagina, limite }) => {
+
+    if (!mongoose.isValidObjectId(userId)) {
+        const error = new Error("El ID del usuario no es válido");
+        error.status = 400;
+        throw error;
+    }
+
+    const usuario = await Usuario.findById(userId);
+
+    if (!usuario) {
+        const error = new Error("El usuario no existe");
+        error.status = 404;
+        throw error;
+    }
+
+    const filtro = { userId };
+
+    const [libros, total] = await Promise.all([
+        Libro.find(filtro)
+            .sort({ _id: -1 })
+            .skip((pagina - 1) * limite)
+            .limit(limite)
+            .populate("userId", "name email")
+            .populate("categoryId"),
+        Libro.countDocuments(filtro)
+    ]);
+
+    return {
+        libros,
+        pagina,
+        limite,
+        total,
+        totalPaginas: Math.ceil(total / limite)
+    };
+}
