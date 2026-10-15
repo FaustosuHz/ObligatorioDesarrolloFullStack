@@ -2,6 +2,8 @@ import mongoose from "mongoose";
 import Libro from "../models/libros.model.js";
 import Usuario from "../models/usuario.model.js";
 import Categoria from "../models/categoria.model.js";
+import { generarKeyRedisLibrosUserPaginado } from "../../utils/generar-key-redis.js";
+import { obtenerDato, guardarDato, eliminarDatosPorPatron } from "../services/redis.service.js";
 
 export const createLibroService = async (data) => {
 
@@ -31,7 +33,12 @@ export const createLibroService = async (data) => {
         throw error;
     }
 
-    return await Libro.create(data);
+    const libro = await Libro.create(data);
+
+    // borra el caché de libros de ese usuario
+    await eliminarDatosPorPatron(`user:libros:${data.userId}*`);
+
+    return libro;
 
 }
 
@@ -125,7 +132,12 @@ export const updateLibroService = async (id, data) => {
         throw error;
     }
 
-    return await Libro.findByIdAndUpdate(id, data, { new: true });
+    const libroActualizado = await Libro.findByIdAndUpdate(id, data, { new: true });
+
+    // borra el caché de libros de ese usuario
+    await eliminarDatosPorPatron(`user:libros:${libro.userId}*`);
+
+    return libroActualizado;
 
 }
 
@@ -145,7 +157,12 @@ export const deleteLibroService = async (id) => {
         throw error;
     }
 
-    return await Libro.findByIdAndDelete(id);
+    const libroEliminado = await Libro.findByIdAndDelete(id);
+
+    // borra el caché de libros de ese usuario
+    await eliminarDatosPorPatron(`user:libros:${libro.userId}*`);
+
+    return libroEliminado;
 
 }
 
@@ -155,6 +172,15 @@ export const getLibrosByUserServicePaginated = async (userId, { pagina, limite }
         const error = new Error("El ID del usuario no es válido");
         error.status = 400;
         throw error;
+    }
+
+    const keyRedis = generarKeyRedisLibrosUserPaginado(userId, pagina, limite);
+
+    // primero pregunta en redis
+    const librosRedis = await obtenerDato(keyRedis);
+    if (librosRedis) {
+        console.log("Encontro en redis los libros paginados");
+        return librosRedis;
     }
 
     const usuario = await Usuario.findById(userId);
@@ -177,11 +203,17 @@ export const getLibrosByUserServicePaginated = async (userId, { pagina, limite }
         Libro.countDocuments(filtro)
     ]);
 
-    return {
+    const resultado = {
         libros,
         pagina,
         limite,
         total,
         totalPaginas: Math.ceil(total / limite)
     };
+
+    // si no estaba, lo guarda en redis
+    guardarDato(keyRedis, resultado);
+    console.log("Busco los libros paginados desde mongo");
+
+    return resultado;
 }
