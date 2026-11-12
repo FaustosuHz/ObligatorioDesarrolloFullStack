@@ -8,7 +8,7 @@ import cors from "cors";
 const app = express();
 
 app.use(cors({
-    origin: ['http://localhost:5000', 'http://localhost:5500'],
+    origin: ['http://localhost:5000', 'http://localhost:5500', 'https://capituloix.vercel.app'],
     methods: ['GET', 'POST', 'DELETE', 'PUT', 'PATCH'],
     maxAge: 86400
 }));
