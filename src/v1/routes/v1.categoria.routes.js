@@ -8,7 +8,7 @@ const categoriaRoutes = Router();
 
 categoriaRoutes.post("/", authMiddleware, adminMiddleware, middlewareValidateCategoriaBody, createCategoriaController);
 
-categoriaRoutes.get("/", authMiddleware, adminMiddleware, getCategoriasController);
+categoriaRoutes.get("/", authMiddleware, getCategoriasController);
 
 categoriaRoutes.get("/:idCategoria", authMiddleware, adminMiddleware, getCategoriaByIdController);
 

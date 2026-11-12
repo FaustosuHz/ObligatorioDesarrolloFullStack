@@ -3,10 +3,17 @@ import "dotenv/config";
 import { connectMongo } from "./src/v1/config/mongo.config.js";
 import apiRoutes from "./src/v1/routes/index.js";
 import { middlewareErrores } from "./src/middleware/error.middleware.js";
+import cors from "cors";
 
 const app = express();
 
-app.use(express.json());
+app.use(cors({
+    origin: ['http://localhost:5000', 'http://localhost:5500'],
+    methods: ['GET', 'POST', 'DELETE', 'PUT', 'PATCH'],
+    maxAge: 86400
+}));
+
+app.use(express.json({ limit: "10mb" }));
 
 app.get("/", (req, res) => {
     console.log("Servidor disponible");

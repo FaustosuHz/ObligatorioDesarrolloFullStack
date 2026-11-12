@@ -23,6 +23,7 @@ export const eliminarDato = async (key) => {
 };
 
 export const eliminarDatosPorPatron = async (patron) => {
-    const keys = await client.keys(patron);
-    if (keys.length) await client.del(keys);
+    const redis = await connectRedis();
+    const keys = await redis.keys(patron);
+    if (keys.length) await redis.del(keys);
 }

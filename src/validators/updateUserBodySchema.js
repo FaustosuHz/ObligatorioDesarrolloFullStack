@@ -30,6 +30,10 @@ export const updateUserBodySchema = Joi.object({
         .messages({
             "string.empty": "El email es obligatorio",
             "string.email": "El email no tiene un formato válido"
-        })
+        }),
+
+    imageUrl: Joi.string().uri().allow("").optional(),
+
+    imagePublicId: Joi.string().allow("").optional()
 
 });
